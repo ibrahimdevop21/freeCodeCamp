@@ -1,0 +1,12 @@
+#first-img{
+  background-image: url(./assets/Muhammad_Ahmad_Mahgoub_1965.jpg);
+  height: 500px;
+  width: 500px;
+  background-size: 500px 500px;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  align-items: end;
+}
