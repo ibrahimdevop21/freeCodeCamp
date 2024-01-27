@@ -6,7 +6,7 @@ Note: You'll need to remove all non-alphanumeric characters (punctuation, spaces
 
 Objective: Build an app that is functionally similar to https://palindrome-checker.freecodecamp.rocks
 
-User Stories:
+<!-- TODO: User Stories:
 
     You should have an input element with an id of text-input
     You should have a button element with an id of check-btn
@@ -26,4 +26,4 @@ User Stories:
     When the #text-input element contains the text 0_0 (: /-\ :) 0-0 and the #check-btn element is clicked, the #result element should contain the text 0_0 (: /-\ :) 0-0 is a palindrome
     When the #text-input element contains the text five|\_/|four and the #check-btn element is clicked, the #result element should contain the text five|\_/|four is not a palindrome
 
-Fulfill the user stories and pass all the tests below to complete this project. Give it your own personal style. Happy Coding!
+Fulfill the user stories and pass all the tests below to complete this project. Give it your own personal style. Happy Coding! -->

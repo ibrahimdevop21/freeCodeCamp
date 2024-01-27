@@ -1,14 +1,17 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: rgb(3, 3, 37);
-  color: #f3f3f3;
+  background-color: #0a0a23;
+  color: #000000;
   text-align: center;
-  align-items: center;
 }
 
+h1 {
+  color: #ffffff;
+  margin-bottom: 25px;
+}
 .container {
-  background-color: #6b6767;
+  background-color: #ffffff;
   width: 500px;
   height: 200px;
   position: relative;
@@ -19,31 +22,65 @@ body {
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
+  box-shadow: 0 4px 14px -1px #ffffff;
+  margin: 0 auto;
 }
 label {
   position: relative;
-  top: 60px;
+  top: 30px;
 }
 
 #text-input {
   position: relative;
-  top: 75px;
-  width: 90%;
+  top: 60px;
+  left: -60px;
+  width: 300px;
   padding: 8px;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
+  box-shadow: 0 0 5px 0 #36bfff inset, 0 4px 4px 0 #5a01a7;
+  border: 2px solid #36bfff;
 }
 
 #check-btn {
   position: absolute;
-  left: 225px;
-  top: 150px;
+  left: 360px;
+  padding: 5px;
+  top: 82px;
   width: 100px;
+  height: 35px;
+  font-size: 1.3rem;
+  background-color: #5a01a7;
+  color: #ffffff;
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
 }
 
 #instruction {
   background-color: rgb(32, 110, 29);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  color: #ffffff;
+  margin-top: 20px;
+}
+
+label,
+p {
+  font-size: 1.3rem;
+}
+
+#result {
+  position: relative;
+  top: 70px;
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-family: sans-serif;
+  margin-top: 10px;
+}
+
+span {
+  font-weight: 700;
 }
