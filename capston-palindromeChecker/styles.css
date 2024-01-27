@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(3, 3, 37);
+  color: #f3f3f3;
+  text-align: center;
+  align-items: center;
+}
+
+.container {
+  background-color: #6b6767;
+  width: 500px;
+  height: 200px;
+  position: relative;
+  margin-bottom: 20px;
+  margin-left: 150px;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+label {
+  position: relative;
+  top: 60px;
+}
+
+#text-input {
+  position: relative;
+  top: 75px;
+  width: 90%;
+  padding: 8px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+#check-btn {
+  position: absolute;
+  left: 225px;
+  top: 150px;
+  width: 100px;
+}
+
+#instruction {
+  background-color: rgb(32, 110, 29);
+}
