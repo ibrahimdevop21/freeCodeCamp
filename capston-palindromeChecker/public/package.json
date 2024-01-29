@@ -1,0 +1,19 @@
+{
+  "name": "capston-palindromechecker",
+  "version": "1.0.0",
+  "description": "test project",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ibrahimdevop21"
+  },
+  "keywords": [
+    "word",
+    "mastermind"
+  ],
+  "author": "ibrahimMohammed",
+  "license": "ISC"
+}
