@@ -1,0 +1,43 @@
+body {
+  background-color: #1a1a1a;
+  color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+label,
+input,
+button {
+  margin-bottom: 10px;
+}
+
+input,
+button {
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 10px;
+  width: 300px;
+}
+
+button {
+  background-color: #ffd700;
+  color: #1a1a1a;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+button:hover {
+  background-color: #e5c100;
+}
+
+#output {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
