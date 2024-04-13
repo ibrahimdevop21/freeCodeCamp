@@ -1,4 +1,3 @@
-//! still nt working
 const regex = /^1? ?(( ?\d{3}[- ]*)|(\( ?\d{3}[- ]*\) *))\d{3}[- ]?\d{4}$/;
 const checkBtn = document.getElementById('check-btn');
 const clearBtn = document.getElementById('clear-btn');
@@ -31,3 +30,4 @@ clearBtn.addEventListener('click', () => {
   document.getElementById('user-input').value = '';
   document.getElementById('results-div').innerHTML = '';
 });
+//! the problom i had was with name of the js file script.js/index.js
