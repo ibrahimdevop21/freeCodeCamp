@@ -1,0 +1,89 @@
+/* styles.css */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #47627e;
+}
+
+.title {
+  margin: 25px 0;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.phone-body {
+  width: 320px;
+  height: 650px;
+  margin: 0 auto;
+  background-color: #000;
+  border-radius: 20px;
+  padding: 20px;
+  position: relative;
+}
+
+.phone-screen {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  height: 550px;
+}
+
+.phone-screen label {
+  font-weight: bold;
+}
+
+.phone-screen input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-top: 8px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.btn {
+  padding: 10px;
+  margin-top: 2px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 25%;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.conainer {
+  position: relative;
+}
+
+.cam::before {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: #ff3c00;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 5px;
+  transform: translateX(-50%);
+}
+
+.valid {
+  color: green;
+}
+
+.invalid {
+  color: red;
+}
