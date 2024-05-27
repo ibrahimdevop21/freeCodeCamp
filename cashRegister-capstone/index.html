@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Cash Register Project</title>
+  </head>
+  <body>
+    <h1 class="title">Cash Register Project</h1>
+    <label for="cash">Enter cash from customer:</label>
+    <input type="text" id="cash" />
+    <button id="purchase-btn">Purchase</button>
+    <div id="change-due" class="cxScreen"></div>
+    <div class="empScreen">
+      <div id="cash-drawer-display" class="cash-drawer-display">
+        <p><strong>Change in drawer:</strong></p>
+        <p>Pennies: <span id="pennies">$1.01</span></p>
+        <p>Nickels: <span id="nickels">$2.05</span></p>
+        <p>Dimes: <span id="dimes">$3.1</span></p>
+        <p>Quarters: <span id="quarters">$4.25</span></p>
+        <p>Ones: <span id="ones">$90</span></p>
+        <p>Fives: <span id="fives">$55</span></p>
+        <p>Tens: <span id="tens">$20</span></p>
+        <p>Twenties: <span id="twenties">$60</span></p>
+        <p>Hundreds: <span id="hundreds">$100</span></p>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

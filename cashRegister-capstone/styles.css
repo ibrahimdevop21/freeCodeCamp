@@ -1,0 +1,55 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  text-align: center;
+}
+
+.empScreen {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.cash-drawer-display {
+  border: 2px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.cash-drawer-display p {
+  margin: 5px 0;
+}
+
+#change-due {
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+#cash,
+#purchase-btn {
+  margin: 10px;
+}
+
+#purchase-btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#purchase-btn:hover {
+  background-color: #0056b3;
+}
+
+.cxScreen {
+  border: 2px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
