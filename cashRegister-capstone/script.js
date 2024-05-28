@@ -1,4 +1,4 @@
-let price = 12.32;
+let price = 19.5;
 let cid = [
   ['PENNY', 1.01],
   ['NICKEL', 2.05],
@@ -11,98 +11,85 @@ let cid = [
   ['ONE HUNDRED', 100],
 ];
 
-let cashInput = document.getElementById('cash');
-let changeDue = document.getElementById('change-due');
-let purchaseBtn = document.getElementById('purchase-btn');
+document
+  .getElementById('purchase-btn')
+  .addEventListener('click', handlePurchase);
 
-purchaseBtn.addEventListener('click', function () {
-  let cash = Number(cashInput.value);
+const currencyUnits = [
+  ['PENNY', 0.01],
+  ['NICKEL', 0.05],
+  ['DIME', 0.1],
+  ['QUARTER', 0.25],
+  ['ONE', 1],
+  ['FIVE', 5],
+  ['TEN', 10],
+  ['TWENTY', 20],
+  ['ONE HUNDRED', 100],
+];
 
-  // Check if cash is less than price
+function handlePurchase() {
+  let cash = parseFloat(document.getElementById('cash').value);
+  let changeDue = cash - price;
+
   if (cash < price) {
     alert('Customer does not have enough money to purchase the item');
-    return; // Stop further execution
+    return;
   }
 
-  let totalChangeDue = cash - price;
-
-  if (totalChangeDue === 0) {
-    changeDue.innerText = 'No change due - customer paid with exact cash';
-    return; // Stop further execution
+  if (cash === price) {
+    document.getElementById('change-due').innerText =
+      'No change due - customer paid with exact cash';
+    return;
   }
 
-  function calculateChange(price, cash, cid) {
-    let change = [];
-    let totalChange = totalChangeDue;
+  let change = calculateChange(changeDue, cid);
+  document.getElementById(
+    'change-due'
+  ).innerText = `Status: ${change.status} ${change.change}`;
+}
 
-    for (let i = cid.length - 1; i >= 0; i--) {
-      let denomination = cid[i][0];
-      let denominationAmount = cid[i][1];
+function calculateChange(changeDue, cid) {
+  let changeArray = [];
+  let totalCid = 0;
 
-      let denominationValue;
-      switch (denomination) {
-        case 'PENNY':
-          denominationValue = 0.01;
-          break;
-        case 'NICKEL':
-          denominationValue = 0.05;
-          break;
-        case 'DIME':
-          denominationValue = 0.1;
-          break;
-        case 'QUARTER':
-          denominationValue = 0.25;
-          break;
-        case 'ONE':
-          denominationValue = 1;
-          break;
-        case 'FIVE':
-          denominationValue = 5;
-          break;
-        case 'TEN':
-          denominationValue = 10;
-          break;
-        case 'TWENTY':
-          denominationValue = 20;
-          break;
-        case 'ONE HUNDRED':
-          denominationValue = 100;
-          break;
-      }
+  for (let i = 0; i < cid.length; i++) {
+    totalCid += cid[i][1];
+  }
+  totalCid = totalCid.toFixed(2);
 
-      let maxDenominationUsage = Math.min(
-        Math.floor(totalChange / denominationValue),
-        denominationAmount
-      );
+  if (parseFloat(totalCid) < changeDue) {
+    return { status: 'INSUFFICIENT_FUNDS', change: '' };
+  }
 
-      if (maxDenominationUsage > 0) {
-        totalChange -= maxDenominationUsage * denominationValue;
-        cid[i][1] -= maxDenominationUsage * denominationValue;
-        change.push([denomination, maxDenominationUsage * denominationValue]);
-      }
+  if (parseFloat(totalCid) === changeDue) {
+    return { status: 'CLOSED', change: formatChange(cid) };
+  }
+
+  for (let i = currencyUnits.length - 1; i >= 0; i--) {
+    let unitName = currencyUnits[i][0];
+    let unitValue = currencyUnits[i][1];
+    let amountInDrawer = cid[i][1];
+    let amountToReturn = 0;
+
+    while (changeDue >= unitValue && amountInDrawer >= unitValue) {
+      changeDue -= unitValue;
+      changeDue = changeDue.toFixed(2);
+      amountInDrawer -= unitValue;
+      amountToReturn += unitValue;
     }
 
-    return {
-      status:
-        totalChange === 0
-          ? 'CLOSED'
-          : totalChange < 0
-          ? 'INSUFFICIENT_FUNDS'
-          : 'OPEN',
-      change: change,
-    };
+    if (amountToReturn > 0) {
+      changeArray.push([unitName, amountToReturn]);
+    }
   }
 
-  let result = calculateChange(price, cash, cid);
-
-  if (result.status === 'CLOSED') {
-    changeDue.innerText = 'Status: CLOSED';
-  } else if (result.status === 'INSUFFICIENT_FUNDS') {
-    changeDue.innerText = 'Status: INSUFFICIENT_FUNDS';
-  } else {
-    let changeString = result.change
-      .map((item) => item[0] + ': $' + item[1])
-      .join(', ');
-    changeDue.innerText = 'Status: OPEN ' + changeString;
+  if (changeDue > 0) {
+    return { status: 'INSUFFICIENT_FUNDS', change: '' };
   }
-});
+
+  return { status: 'OPEN', change: formatChange(changeArray) };
+}
+
+function formatChange(changeArray) {
+  return changeArray.map((unit) => `${unit[0]}: $${unit[1]}`).join(' ');
+}
