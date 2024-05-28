@@ -1,55 +1,62 @@
 body {
   font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
   margin: 0;
   padding: 0;
 }
 
-.title {
+.container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
   text-align: center;
+  color: #333;
+  margin-bottom: 20px;
 }
 
-.empScreen {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+.input-group {
+  margin-bottom: 20px;
 }
 
-.cash-drawer-display {
-  border: 2px solid #ccc;
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #666;
+}
+
+.input-group input {
+  width: calc(100% - 20px);
   padding: 10px;
+  border: 1px solid #ccc;
   border-radius: 5px;
 }
 
-.cash-drawer-display p {
-  margin: 5px 0;
-}
-
-#change-due {
-  text-align: center;
-  margin-top: 20px;
-  font-weight: bold;
-}
-
-#cash,
-#purchase-btn {
-  margin: 10px;
-}
-
-#purchase-btn {
-  padding: 10px 20px;
+.btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
   background-color: #007bff;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-#purchase-btn:hover {
+.btn:hover {
   background-color: #0056b3;
 }
 
-.cxScreen {
-  border: 2px solid #ccc;
-  padding: 10px;
+.change-result {
+  padding: 15px;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
   border-radius: 5px;
+  font-size: 16px;
 }
