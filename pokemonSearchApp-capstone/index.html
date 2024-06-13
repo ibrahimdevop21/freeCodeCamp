@@ -8,15 +8,20 @@
   </head>
   <body>
     <div class="container">
-      <h2>JS Capestone Project</h2>
+      <h2>JS Capstone Project</h2>
       <h1>Pokemon Name or ID:</h1>
       <input type="text" id="search-input" required />
       <button id="search-button">Search</button>
-      <div id="pokemon-name"></div>
-      <div id="pokemon-id"></div>
-      <div id="weight"></div>
-      <div id="height"></div>
+      <div id="first-line">
+        <div id="pokemon-name"></div>
+        <div id="pokemon-id"></div>
+      </div>
+      <div id="second-line">
+        <div id="weight"></div>
+        <div id="height"></div>
+      </div>
       <div id="types"></div>
+      <img src="" alt="" id="sprite" />
       <table>
         <tr>
           <th class="firstC">Base</th>
@@ -24,35 +29,29 @@
         </tr>
         <tr>
           <td>HP</td>
-          <td></td>
+          <td id="hp"></td>
         </tr>
         <tr>
-          <td>Attack:</td>
-          <td></td>
+          <td>Attack</td>
+          <td id="attack"></td>
         </tr>
         <tr>
-          <td>Defense:</td>
-          <td></td>
+          <td>Defense</td>
+          <td id="defense"></td>
         </tr>
         <tr>
-          <td>Sp.Attack:</td>
-          <td></td>
+          <td>Sp. Attack</td>
+          <td id="special-attack"></td>
         </tr>
         <tr>
-          <td>Sp.Defense:</td>
-          <td></td>
+          <td>Sp. Defense</td>
+          <td id="special-defense"></td>
         </tr>
         <tr>
-          <td>Speed:</td>
-          <td></td>
+          <td>Speed</td>
+          <td id="speed"></td>
         </tr>
       </table>
-      <div id="hp"></div>
-      <div id="attack"></div>
-      <div id="defense"></div>
-      <div id="special-attack"></div>
-      <div id="special-defense"></div>
-      <div id="speed"></div>
     </div>
     <script src="script.js"></script>
   </body>

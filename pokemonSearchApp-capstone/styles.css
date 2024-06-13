@@ -60,9 +60,17 @@ p {
   border-radius: 5px;
 }
 
+#first-line {
+  display: inline-block;
+  vertical-align: top;
+  width: 35%;
+  margin: 0 2.5%;
+}
+
 .button {
   transition: background-color 0.3s ease;
   border-radius: 35px;
+  display: inline-block;
 }
 
 .button:hover {
