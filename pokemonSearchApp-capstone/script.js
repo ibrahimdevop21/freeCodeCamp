@@ -5,44 +5,41 @@ const pokemonId = document.getElementById('pokemon-id');
 const pokemonW = document.getElementById('weight');
 const pokemonH = document.getElementById('height');
 const pokemonT = document.getElementById('types');
-const pokemonImage = document.getElementById('sprite');
+const pokemonImage = document.getElementById('pokemon-image');
 
 searchButton.addEventListener('click', async () => {
   const query = search.value.trim().toLowerCase();
   if (query === '') {
     alert('Please enter a Pokémon name or ID');
     return;
-  }
-
-  if (query === 'red') {
+  } else if (query === 'Red') {
     alert('Pokémon not found');
-    return;
   }
 
   try {
     const data = await getPokemon(query);
     if (data) {
-      // Populate data into the page
       populatePokemonData(data);
     } else {
-      alert('Pokémon not found');
+      throw new Error('Pokémon not found');
     }
   } catch (error) {
-    alert(
-      'An error occurred while fetching Pokémon data. Please try again later.'
-    );
+    alert('Pokémon not found');
   }
 });
 
-// Async function to fetch Pokémon data
 async function getPokemon(nameOrId) {
   const url = `https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${nameOrId}`;
-  const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error('Something went wrong: ' + response.statusText);
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error('Pokemon not found');
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    throw new Error('Failed to fetch Pokemon data');
   }
-  const data = await response.json();
-  return data;
 }
 
 function populatePokemonData(data) {
@@ -53,21 +50,30 @@ function populatePokemonData(data) {
   pokemonImage.src = data.sprites.front_default;
   pokemonImage.alt = data.name;
 
-  const types = data.types
-    .map((typeInfo) => typeInfo.type.name.toUpperCase())
-    .join(', ');
-  pokemonT.innerHTML = `Types: ${types}`;
+  pokemonT.innerHTML = '';
+  const types = data.types.map((typeInfo) => typeInfo.type.name.toUpperCase());
+  types.forEach((type) => {
+    const typeElement = document.createElement('div');
+    typeElement.textContent = type;
+    pokemonT.appendChild(typeElement);
+  });
 
-  const stats = data.stats.reduce((acc, stat) => {
-    acc[stat.stat.name] = stat.base_stat;
-    return acc;
-  }, {});
-
-  document.getElementById('hp').innerText = stats.hp;
-  document.getElementById('attack').innerText = stats.attack;
-  document.getElementById('defense').innerText = stats.defense;
-  document.getElementById('special-attack').innerText = stats['special-attack'];
-  document.getElementById('special-defense').innerText =
-    stats['special-defense'];
-  document.getElementById('speed').innerText = stats.speed;
+  document.getElementById('hp').innerText = data.stats.find(
+    (stat) => stat.stat.name === 'hp'
+  ).base_stat;
+  document.getElementById('attack').innerText = data.stats.find(
+    (stat) => stat.stat.name === 'attack'
+  ).base_stat;
+  document.getElementById('defense').innerText = data.stats.find(
+    (stat) => stat.stat.name === 'defense'
+  ).base_stat;
+  document.getElementById('special-attack').innerText = data.stats.find(
+    (stat) => stat.stat.name === 'special-attack'
+  ).base_stat;
+  document.getElementById('special-defense').innerText = data.stats.find(
+    (stat) => stat.stat.name === 'special-defense'
+  ).base_stat;
+  document.getElementById('speed').innerText = data.stats.find(
+    (stat) => stat.stat.name === 'speed'
+  ).base_stat;
 }
