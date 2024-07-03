@@ -24,6 +24,7 @@ This repository contains a collection of projects completed as part of the FreeC
 3. Caesars Cipher
 4. Telephone Number Validator
 5. Cash Register
+6. Pokimon Search app
 
 ### Additional Projects
 1. Forum Page
